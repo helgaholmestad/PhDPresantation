@@ -1,0 +1,107 @@
+{
+  \vspace{-1cm}
+  \hspace{-1.5cm}
+  % Define block styles
+  \tikzstyle{block} = [rectangle, draw, fill=blue!90!green!90!black!20, 
+    text width=2.7cm, text centered, rounded corners, minimum height=1em]
+  \tikzstyle{mainBlock} = [rectangle, draw, fill=green!20, 
+  text width=3.0cm,ultra thick, text centered, rounded corners, minimum height=1cm]
+  \tikzstyle{line} = [draw, ultra thick,-latex]
+  \tikzstyle{lineP} = [draw, ultra thick]
+  \tikzstyle{cloud} = [draw ,fill=red!20,text width=2.6cm,minimum height=4em,text centered]
+  \tikzstyle{problem} = [rectangle, draw, fill=yellow!90, 
+    text width=2.5cm, text centered, rounded corners, minimum height=1em]
+
+  %\tikzstyle{problem} = [star, star points=5, minimum width=0.0cm,inner sep=0.1pt,anchor=outer point 10,star point ratio=2.0, fill=yellow,text width=1cm, draw]
+  %\begin{center}
+    \begin{tikzpicture}
+      %\vspace{-2cm}
+      \visible<1->{
+      \node [mainBlock](data) {\large Raw data from Timepix3};
+      \node [mainBlock,left of =data,xshift=10cm](simu) {\large Monte Carlo generated annihilations from FLUKA};
+      \node [mainBlock,below of =data,yshift=-2cm](dataP) {\large Processed data};
+      \node [mainBlock,below of =simu,yshift=-2cm](simuP) {\large Simulated data};
+      \path [line] (data)--(dataP) node[left,align=center,yshift=1.5cm,xshift=2.2cm] {~~-Clustering\\-Cleaning};
+      \path [line] (simu)--(simuP) node[left,align=right,yshift=1.5cm,xshift=-0.2cm] {Detector response};
+      }
+      
+      \visible<2,3>{\path [lineP] (dataP)--(simuP) node[above,align=right,yshift=0cm,xshift=-4.5cm] {\huge?};
+      }
+
+      \visible<4->{\path [lineP] (dataP)--(simuP) node[above,align=right,yshift=0cm,xshift=-4.5cm] {\huge =};
+        }
+            %%  %\path [lineP] (simuP)--(Obs) node[above,align=right,yshift=0cm,xshift=-7.0cm] {};
+      \visible<3->{
+        \node [cloud,below of =simuP,yshift=-1.5cm,xshift=-4.5cm](Obs) {\large Observables};
+      \node [mainBlock,below of =simuP,yshift=-3cm](ObsS) {\large
+        %--Størrelse \\
+        %--\\
+        \begin{itemize}
+        \item{Deposited energy}
+        \item{Deposited energy in center}
+        \item{Size}
+        \item{Prongs}
+        \end{itemize}
+        };
+      \node [mainBlock,below of =dataP,yshift=-3cm](ObsD) {\large
+      \begin{itemize}
+      \item{Deposited energy}
+      \item{Deposited energy in center}
+      \item{Size}
+      \item{Prongs}
+      \end{itemize}
+      };
+      \path [line] (Obs)--(ObsD); 
+      \path [line] (Obs)--(ObsS); 
+      \path [lineP] (simuP)--(Obs);
+      \path [lineP] (dataP)--(Obs);
+      \node [cloud,below of =ObsS,yshift=-1.5cm,xshift=-4.5cm](Sam) {\large Compare distributions};
+      \path [line] (ObsS)--(Sam); 
+      \path [line] (ObsD)--(Sam);
+      
+}
+      
+      \visible<5->{\node [mainBlock,text width=5cm,below of =Sam,yshift=-1.5cm,xshift=0cm](Fin) {\large \begin{itemize}
+        \item{Tag antiprotons}
+        \item{Reconstruct annihilation point}
+        \item{...}
+        \end{itemize}
+        };
+        \path [line] (simuP)|-($(simuP)+(3cm,0cm)$) |- (Fin);
+        \path [line] (dataP)-|($(dataP)+(-3cm,0cm)$) |- (Fin);
+      }
+      \visible<6->{
+        \node [mainBlock,left of =simu,yshift=0cm,xshift=5cm](Sann) {\large Truth information};
+        \node [mainBlock,below of=Sann,yshift=-13cm,xshift=0cm](Eva) {\large Evaluate methods};
+        \path [line] (simu)--(Sann);
+        \path [line] (Sann)--(Eva);
+        %\path [line] (Fin)--($(Fin)+(0cm,0cm)$) |- (Eva);
+        \path [line] (Fin)|-($(Fin)+(0cm,-2cm)$)|-(Eva);
+      %
+      %% \path [line] (ObsS)--(Sam); 
+      %% \path [line] (ObsD)--(Sam); 
+      }
+      \visible<7>{
+        \node [problem,left of=data,xshift=-2.1cm,yshift=0cm]{\large{Bad experimental conditions}};
+      }
+
+        \visible<9>{
+        \node [problem,left of=simu,xshift=-2.1cm,yshift=0cm]{\large{Annihilation process not fully known}};
+        }
+
+         \visible<10>{
+           \node [problem,left of=Eva,xshift=-0.5cm,yshift=1.2cm]{\large{Effect on final results}};
+           }
+         \visible<8>{
+        \node [problem,above of=Sam,xshift=0.0cm,yshift=1cm]{\large{Data contains mixture of fragments and annihilations}};
+        }
+
+      
+    \end{tikzpicture}
+  %\end{center}
+}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../../thesis.tex"
+%%% End: 
