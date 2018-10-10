@@ -1,4 +1,13 @@
 \documentclass{beamer}
+\setbeamercovered{transparent}
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
 \definecolor{links}{HTML}{2A1B81}
 \hypersetup{colorlinks,linkcolor=,urlcolor=links}
 \usepackage{tikz}
@@ -20,6 +29,7 @@
 \setbeamerfont{block title}{size=\large}
 \setbeamerfont{frametitle}{size=\Huge}
 \setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{footline}[frame number]
 
 %
 % Choose how your presentation looks.
@@ -58,30 +68,70 @@
 \section{Introduction}
 
 \begin{frame}{\centering AEgIS experiment}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item{Measure the gravitational acceleration of antimatter}
-      \item{Test if the  weak equivalence principle holds also for antimatter}
-      \end{itemize}
-     \end{column}
-    \begin{column}{0.5\textwidth}
+  \vspace{0.5cm}
+  \begin{center}
+  Measure the gravitational acceleration of antimatter
+  %% \begin{columns}
+  %%   \begin{column}{0.35\textwidth}
+  %%     %\begin{itemize}
+  %%     %\item{
+      
+  %%     Measure the gravitational acceleration of antimatter
+  %%     %\item{Test if the  weak equivalence principle holds also for antimatter}
+  %%     %\end{itemize}
+  %%    \end{column}
+  %%   \begin{column}{0.65\textwidth}
+  \vspace{-0.35cm}
       \begin{figure}
-        \includegraphics[width=\textwidth]{fig/gali3.jpg}
-        \end{figure}
+        \begin{tikzpicture}
+          \node at (0,0){\includegraphics[width=0.6\textwidth]{fig/gali3.jpg}};
+          \visible<2->{
+          \node [rectangle,red,draw,text centered, rounded corners,fill=white] at (0.5,-0.5) (matter) {\small \bf{Matter}};
+          \path [line,red] (matter)--(0.9,0.25);
+          \node [rectangle,green,draw,text width=1.5cm,text centered, rounded corners,fill=white] at (2.5,-0.5) (antimatter) {\small \bf{Anti- matter}};
+          \path [line,green] (antimatter)--(1.2,0.25);
+         }
+          \end{tikzpicture}
+      \end{figure}
+      \end{center}
+  %%   \end{column}
+  %% \end{columns}
+\end{frame}
+
+  
+\begin{frame}{\centering The equivalence principle}
+  \begin{columns}
+    \begin{column}{0.39\textwidth}
+        \begin{itemize}
+        \item{Gravitational field = accelerated frame of reference}
+         \item{Predicts: $\bar g= g$}
+         \item{Building block of general relativity}
+           \begin{itemize}
+             \uncover<2->{
+           \item{Bending of light}
+           \item{Red shift}
+             }
+           %\item{GPS}
+           \end{itemize}
+         
+      %\item{Test if the  weak equivalence principle holds also for antimatter}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \begin{figure}
+        \begin{tikzpicture}
+          \node at (0,0){\includegraphics[width=\textwidth]{fig/elevator.jpg}};
+          \node[scale=0.7,red] at (2.6,1.7){9.81~m/s$^2$};
+         \end{tikzpicture}
+      \end{figure}
     \end{column}
   \end{columns}
-  
-
+  \end{frame}
 %\vskip 1cm
 
 %\begin{block}{Examples}
-
   
 %\end{block}
-
-\end{frame}
-
 
 \begin{frame}{\centering A classical moiré deflectometer}
   %% \begin{columns}
@@ -94,7 +144,14 @@
   %%   \begin{column}{0.8\textwidth}
   \begin{tikzpicture}
     \node at (0,0) {\includegraphics[width=\textwidth]{fig/moire.png}};
-    \visible <2> {\node[star, star points=5, minimum width=0.1cm,inner sep=1.8pt,anchor=outer point 3,star point ratio=5.25, fill=yellow, draw] at (4,0.5) {};
+
+    \visible<2>{
+    \draw [decorate,decoration={brace,amplitude=10pt},rotate=0]
+    (4.0,-2.3) -- (-2.5,-2.3) node [xshift=3.25cm,yshift=-0.6cm] {\textbf{1~m}};
+    \draw [decorate,decoration={brace,amplitude=5pt},rotate=90]
+    (0.5,-0.9) -- (-0.15,-0.9) node [xshift=0.8cm,yshift=0.3cm] {\bf{50~$\boldsymbol{\mu}$m}};
+    }
+    \visible <4> {\node[star, star points=5, minimum width=0.1cm,inner sep=1.8pt,anchor=outer point 3,star point ratio=5.25, fill=yellow, draw] at (4,0.5) {};
       \node[star, star points=5, minimum width=0.1cm,inner sep=1.8pt,anchor=outer point 3,star point ratio=5.25, fill=yellow, draw] at (4,-0.2) {};
       \node[star, star points=5, minimum width=0.1cm,inner sep=1.8pt,anchor=outer point 3,star point ratio=5.25, fill=yellow, draw] at (4,-0.85) {};
      \node[star, star points=5, minimum width=0.1cm,inner sep=1.8pt,anchor=outer point 3,star point ratio=5.25, fill=yellow, draw] at (4,-1.5) {};
@@ -113,21 +170,22 @@
   %%   \begin{column}{0.4\textwidth}
   \begin{itemize}
     \item{Tag antihydrogen}
-      \visible<2->{
+      \uncover<2->{
         \begin{itemize}
         \item{Fragments from annihilations outside the detector}
 %        \item{Trade off between tagging efficiency and purity of sample}
         \end{itemize}
       }
   \item{Measure time of flight}
-    \visible<3->{\begin{itemize}
+    \uncover<3->{\begin{itemize}
       \item{Energy of antihydrogen beam will not be completely uniform}
       \item{Transit time through the moirè deflectometer is around 2ms}
       \end{itemize}
       }
   \item{Reconstruct the annihilation point}
-    \visible<4->{\begin{itemize}
-      \item{The shift of pattern is 10~$\mu$m -- 20~$\mu$m}
+    \uncover<4->{\begin{itemize}
+      \item{The periodicity of the moire deflectometer is around 50~$\mu$m}
+      \item{Vertical fall around 10~$\mu$m}
       \item{Around 10~$\mu$m resolution needed to achieve 1\% precision on $\bar g$}
       \end{itemize}
       }
@@ -142,21 +200,15 @@
 \end{frame}
 
 
-\begin{frame}{\centering GRACE beamline}
-        \includegraphics[width=\textwidth]{fig/Grace.png};
- \end{frame}
-
-
-
 \begin{frame}{\centering The Timepix3 detector}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item{670~$\mu$m thick}
-      \item{55$\mu$m$\times$55$\mu$m pixels}
+      \item{55~$\mu$m$\times$55~$\mu$m pixels}
       \item{Self triggering pixels}
       \item{Measure both time of arrival and deposited energy}
       \item{Time resolution 1--2~ns}
+      \item{670~$\mu$m thick}
       \end{itemize}
      \end{column}
     \begin{column}{0.5\textwidth}
@@ -167,6 +219,28 @@
     \end{column}
   \end{columns}
  \end{frame}
+
+\begin{frame}{\centering GRACE beamline}
+  \vspace{0.025cm}
+  \only<1>{\includegraphics[width=\textwidth]{fig/GRACEReal.jpg}}
+%  \only<2>{\includegraphics[width=\textwidth]{fig/thesis-figure1.pdf}}
+\end{frame}
+
+
+\begin{frame}{\centering GRACE in standard setting}
+  \vspace{0.025cm}
+  \only<1>{\includegraphics[width=\textwidth]{fig/thesis-figure0.pdf}}
+%  \only<2>{\includegraphics[width=\textwidth]{fig/thesis-figure1.pdf}}
+\end{frame}
+
+
+
+\begin{frame}{\centering GRACE for fragment sample}
+ % \only<1>{\includegraphics[width=\textwidth]{fig/thesis-figure0.pdf}}
+  \only<1>{\includegraphics[width=\textwidth]{fig/thesis-figure1.pdf}}
+\end{frame}
+
+
 
 \begin{frame}{\centering Antiproton data}
   %\begin{center}
@@ -206,44 +280,11 @@
   %\end{center}
   %\hspace{10cm}
 \end{frame}
-
-
-\begin{frame}{\centering Analyse the data}
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \begin{itemize}
-      \item<1->{Clustering in time and space}
-      \item<2->{Check for single tracks}
-      \item<5->{Find and remove center}
-      \item<7->{Hough transform to identify prongs}
-      \item<8->{Remove prong}
-      \item<9->{Find more prongs}
-      \item<10>{Fit straight lines and find the intersection}
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.55\textwidth}
-      %%       test
-      \begin{tikzpicture}
-        \only<1,2>{\node at (0,0){\includegraphics[width=2.55in]{fig/1060.png}};}
-        \only<2>{\draw [thick,red](-2.8,-1)--(2.1,0.45);}
-        \only<3,4>{\node at (0,0){\includegraphics[width=2.55in]{fig/370.png}};}
-        \only<4>{\draw [thick,red](-1.8,1.9)--(0.5,-1.9);}
-        \only<5,6>{\node at (0,0){\includegraphics[width=2.55in]{fig/370.png}};}
-        \only<5,6>{\draw[orange,thick] (-0.27,-0.78) circle (0.24);}
-        \only<6>{\draw[black,thick,fill=black] (-0.22,-0.72) circle (0.03);}
-        \only<7>{\node at (0,0){\includegraphics[width=2.55in]{fig/371.png}};}
-        \only<7>{\draw[black,thick,fill=black] (-0.22,-0.72) circle (0.03);}
-        \only<8>{\node at (0,0){\includegraphics[width=2.55in]{fig/372.png}};}
-%%    
-        \only<9>{\node at (0,0){\includegraphics[width=2.55in]{fig/373.png}};}
-
-        \only<10>{\node at (0,0){\includegraphics[width=2.55in]{fig/371.png}};}
-        \only<10>{\draw [thick,green](-2.8,1.6)--(0.7,-1.45);}
-        \only<10>{\draw [thick,green](-0.95,2)--(-0.0,-1.45);}
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
+\begin{frame}
+  \scalebox{0.6}{\input{simulation.tex}}
 \end{frame}
+
+
 
 
 \begin{frame}{\centering Simulation of the detector}
@@ -267,6 +308,48 @@
     \end{column}
     \end{columns}
 \end{frame}
+
+
+
+\begin{frame}{\centering Analyse the data}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item<1->{Clustering in time and space}
+      \item<2->{Find center}
+      \item<3->{Estimate annihilation point (mass center method)}
+      \item<4->{Reomve center}
+      \item<5->{Hough transform to identify prongs}
+      \item<6->{Remove prong}
+      \item<7->{Find more prongs}
+      \item<8->{Check for single tracks}
+      \item<11>{Fit lines to the prongs and find intersection (vertex fitting method)}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+%%       %%       test
+      \begin{tikzpicture}
+        \only<1,2,3>{\node at (0,0){\includegraphics[width=2.55in]{fig/370.png}};}         \only<2,3>{\draw[orange,thick] (-0.27,-0.78) circle (0.24);}
+        \only<3>{\draw[black,thick,fill=black] (-0.22,-0.72) circle (0.03);}
+        \only<4,5>{\node at (0,0){\includegraphics[width=2.55in]{fig/371.png}};}
+        \only<6>{\node at (0,0){\includegraphics[width=2.55in]{fig/372.png}};}
+        \only<7>{\node at (0,0){\includegraphics[width=2.55in]{fig/373.png}};}
+           %% %%
+        \only<8,9>{\node at (0,0){\includegraphics[width=2.55in]{fig/1060.png}};}
+        \only<9>{\draw [thick,red](-2.8,-1)--(2.1,0.45);}
+      
+        \only<10>{\node at (0,0){\includegraphics[width=2.55in]{fig/370.png}};}
+        \only<10>{\draw [thick,red](-1.8,1.9)--(0.5,-1.9);}
+%%    
+%%         %% \only<9>{\node at (0,0){\includegraphics[width=2.55in]{fig/373.png}};}
+\only<11>{\node at (0,0){\includegraphics[width=2.55in]{fig/371.png}};}
+\only<11>{\draw [thick,green](-2.8,1.6)--(0.7,-1.45);}
+\only<11>{\draw [thick,green](-0.95,2)--(-0.0,-1.45);}
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 
 
 \begin{frame}{\centering Verification of the simulation}
@@ -295,29 +378,72 @@
 
 
 \begin{frame}{\centering Tagging efficiency}
- % \only<1>{\begin{block}{\centering}
-  \centering
-    \includegraphics[width=3.17in]{fig/taggingEfficency}
-%    \end{block}
-%  }
+  \begin{itemize}
+  \item<1->{Anninhilation clusters are larger and have prongs}
+  \item<2->{Trade off between tagging efficency and false positive rate}
+  \uncover<3->{\item{A good compromise: At least 70 pixels and at least 1 prong}
+    \begin{itemize}
+    \item{Tagging efficency 50 $\pm$ 10\%}
+    \item{Positive false rate below 1.1\%}
+    \end{itemize}
+    }
+  \end{itemize}
 \end{frame}
-\begin{frame}{Position resolution}
-  \begin{block}{\begin{itemize}
-        \setlength{\itemindent}{2.5cm}
-      \item{22 \% of the annihilations can be well reconstructed by the vertex fitting method}
-      \item{Position resolution 22~$\mu$m}
+
+
+\begin{frame}{\centering Position resolution}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \uncover<1->{\item{Mass center method}
+        \begin{itemize}
+        \item{All clusters}
+        \item{93~$\mu m$ resolution}
+        \end{itemize}
+        }
+      \uncover<2->{\item{Vertex fitting method}
+        \begin{itemize}
+        \item{45\% of all clusters}
+        \item{48~$\mu m$ resolution}
+      \end{itemize}}
+      \uncover<3->{
+      \item{Vertex fitting method exluding bad fits}
+        \begin{itemize}
+        \item{22\% of all clusters}
+        \item{22~$\mu m$ resolution}
+      \end{itemize}}
+      \item<4->{Changing material had an effect of $\pm \approx 1 \mu m$}
       \end{itemize}
-      }
-      \centering
-      \includegraphics[width=3.25in]{fig/2dfit.pdf}
-  \end{block}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \begin{figure}
+        \begin{tikzpicture}
+          \only<1>{\node at (0,0){\includegraphics[width=\textwidth]{fig/2dfitSimple.pdf}};}
+        \only<2>{\node at (0,0){\includegraphics[width=\textwidth]{fig/2dfit.pdf}};}
+        \only<3->{\node at (0,0){\includegraphics[width=\textwidth]{fig/2dfitSmall.pdf}};}
+        \end{tikzpicture}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
+
+
+
+  
+  
+%%  % \only<1>{\begin{block}{\centering}
+%%   \centering
+%%     \includegraphics[width=3.17in]{fig/taggingEfficency}
+%% %    \end{block}
+%% %  }
 
 \begin{frame}{Conclusion}
   \begin{itemize}
-  \item{We can clearly see the annihilation clusters}
+  \item{We can clearly see the annihilation clusters in the Timepix3}
+  \item{Better understanding of annihilaitons in Timepix3}
+  \item{Developed a detector response model, and a full simulation of the GRACE beamline}
   \item{Tagging efficiency of 50~$\pm$~10\%}
-  \item{False positive rate $< 1$\%}
+  \item{False positive rate $< 1.0$\%}
   \item{Position resolution of 22~$\mu$m}
   \end{itemize}
 \end{frame}
