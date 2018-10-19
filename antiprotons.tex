@@ -104,16 +104,19 @@
     \begin{column}{0.39\textwidth}
         \begin{itemize}
         \item{Gravitational field = accelerated frame of reference}
-         \item{Predicts: $\bar g= g$}
-         \item{Building block of general relativity}
-           \begin{itemize}
-             \uncover<2->{
-           \item{Bending of light}
-           \item{Red shift}
-             }
-           %\item{GPS}
-           \end{itemize}
-         
+        \item{Predicts: $\bar g= g$}
+          \begin{itemize}
+          \item{Never been tested before}
+          \end{itemize}
+        \item{Building block of general relativity}
+          \begin{itemize}
+            \uncover<2->{
+            \item{Bending of light}
+            \item{Red shift}
+            }
+          \end{itemize}
+          \uncover<3->{\item{Matter-antimatter assymetry}}
+          %\item{GPS}
       %\item{Test if the  weak equivalence principle holds also for antimatter}
       \end{itemize}
     \end{column}
@@ -188,8 +191,11 @@
       \item{Vertical fall around 10~$\mu$m}
       \item{Around 10~$\mu$m resolution needed to achieve 1\% precision on $\bar g$}
       \end{itemize}
+    }
+    \uncover<5->{
+    \item{Does a detector fullfilling these requirements already exist?}
       }
-    \end{itemize}
+  \end{itemize}
   %%    \end{column}
   %%   \begin{column}{0.8\textwidth}
   %\begin{figure}
@@ -200,20 +206,20 @@
 \end{frame}
 
 
-\begin{frame}{\centering The Timepix3 detector}
+\begin{frame}{\centering Silicon pixel detector using the Timepix3 readout system}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
       \item{55~$\mu$m$\times$55~$\mu$m pixels}
-      \item{Self triggering pixels}
       \item{Measure both time of arrival and deposited energy}
       \item{Time resolution 1--2~ns}
       \item{670~$\mu$m thick}
+      \item{Expose the Timepix3 detector to antiprotons as the annihilation process is the same}
       \end{itemize}
      \end{column}
     \begin{column}{0.5\textwidth}
       \begin{tikzpicture}
-        \node at (0,0) {\includegraphics[width=\textwidth]{fig/MountedTimepix.png}};
+        \node at (0,0) {\includegraphics[width=0.8\textwidth]{fig/MountedTimepix.png}};
         \visible<2>{\node at (0,0) [red,scale=8]{?};}
         \end{tikzpicture}
     \end{column}
@@ -235,7 +241,7 @@
 
 
 
-\begin{frame}{\centering GRACE for fragment sample}
+\begin{frame}{\centering GRACE for reference sample}
  % \only<1>{\includegraphics[width=\textwidth]{fig/thesis-figure0.pdf}}
   \only<1>{\includegraphics[width=\textwidth]{fig/thesis-figure1.pdf}}
 \end{frame}
@@ -287,7 +293,7 @@
 
 
 
-\begin{frame}{\centering Simulation of the detector}
+\begin{frame}{\centering Detector response model}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{itemize}
@@ -320,7 +326,7 @@
       \item<3->{Estimate annihilation point (mass center method)}
       \item<4->{Reomve center}
       \item<5->{Hough transform to identify prongs}
-      \item<6->{Remove prong}
+      \item<6->{Remove prong (star arms)}
       \item<7->{Find more prongs}
       \item<8->{Check for single tracks}
       \item<11>{Fit lines to the prongs and find intersection (vertex fitting method)}
@@ -412,7 +418,7 @@
         \item{22\% of all clusters}
         \item{22~$\mu m$ resolution}
       \end{itemize}}
-      \item<4->{Changing material had an effect of $\pm \approx 1 \mu m$}
+      \item<4->{Change of annihilation fragments shown to have small effect on position resolution $ \approx \pm 1 \mu m$}
       \end{itemize}
     \end{column}
     \begin{column}{0.65\textwidth}
@@ -440,8 +446,10 @@
 \begin{frame}{Conclusion}
   \begin{itemize}
   \item{We can clearly see the annihilation clusters in the Timepix3}
-  \item{Better understanding of annihilaitons in Timepix3}
-  \item{Developed a detector response model, and a full simulation of the GRACE beamline}
+  \item{Better understanding of annihilaitons in material}
+   \item{Better understanding of for large energy depositions in the Timepix3 detector}
+   \item{Detector response model taking into account th
+     Developed a detector response model, and a full simulation of the GRACE beamline}
   \item{Tagging efficiency of 50~$\pm$~10\%}
   \item{False positive rate $< 1.0$\%}
   \item{Position resolution of 22~$\mu$m}

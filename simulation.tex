@@ -25,10 +25,10 @@
       \path [line] (simu)--(simuP) node[left,align=right,yshift=1.5cm,xshift=-0.2cm] {Detector response};
       }
       
-      \visible<2,3>{\path [lineP] (dataP)--(simuP) node[above,align=right,yshift=0cm,xshift=-4.5cm] {\huge?};
+      \visible<2,3,4>{\path [lineP] (dataP)--(simuP) node[above,align=right,yshift=0cm,xshift=-4.5cm] {\huge?};
       }
 
-      \visible<4->{\path [lineP] (dataP)--(simuP) node[above,align=right,yshift=0cm,xshift=-4.5cm] {\huge =};
+      \visible<5->{\path [lineP] (dataP)--(simuP) node[above,align=right,yshift=0cm,xshift=-4.5cm] {\huge =};
         }
             %%  %\path [lineP] (simuP)--(Obs) node[above,align=right,yshift=0cm,xshift=-7.0cm] {};
       \visible<3->{
@@ -59,9 +59,15 @@
       \path [line] (ObsS)--(Sam); 
       \path [line] (ObsD)--(Sam);
       
-}
+      }
+
+
+      \visible<4>{
+        \node [problem,left of=simu,xshift=3.0cm,yshift=-1.8cm,text width=2.8cm]{\large{Improve the response model}};
+      }
+
       
-      \visible<5->{\node [mainBlock,text width=5cm,below of =Sam,yshift=-1.5cm,xshift=0cm](Fin) {\large \begin{itemize}
+      \visible<6->{\node [mainBlock,text width=5cm,below of =Sam,yshift=-1.5cm,xshift=0cm](Fin) {\large \begin{itemize}
         \item{Tag antiprotons}
         \item{Reconstruct annihilation point}
         \item{...}
@@ -70,7 +76,7 @@
         \path [line] (simuP)|-($(simuP)+(3cm,0cm)$) |- (Fin);
         \path [line] (dataP)-|($(dataP)+(-3cm,0cm)$) |- (Fin);
       }
-      \visible<6->{
+      \visible<7->{
         \node [mainBlock,left of =simu,yshift=0cm,xshift=5cm](Sann) {\large Truth information};
         \node [mainBlock,below of=Sann,yshift=-13cm,xshift=0cm](Eva) {\large Evaluate methods};
         \path [line] (simu)--(Sann);
@@ -81,18 +87,18 @@
       %% \path [line] (ObsS)--(Sam); 
       %% \path [line] (ObsD)--(Sam); 
       }
-      \visible<7>{
+      \visible<8>{
         \node [problem,left of=data,xshift=-2.1cm,yshift=0cm]{\large{Bad experimental conditions}};
       }
 
-        \visible<9>{
+        \visible<10>{
         \node [problem,left of=simu,xshift=-2.1cm,yshift=0cm]{\large{Annihilation process not fully known}};
         }
 
-         \visible<10>{
+         \visible<11>{
            \node [problem,left of=Eva,xshift=-0.5cm,yshift=1.2cm]{\large{Effect on final results}};
            }
-         \visible<8>{
+         \visible<9>{
         \node [problem,above of=Sam,xshift=0.0cm,yshift=1cm]{\large{Data contains mixture of fragments and annihilations}};
         }
 

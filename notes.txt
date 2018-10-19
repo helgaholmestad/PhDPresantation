@@ -1,0 +1,17 @@
+The equivalence principle states that there is no observebale difference between being in a gravitational field created by a massive object, for instance the earth, or being in an acceleareted frame of reference.
+This can be illustrated by the following scenario:
+Imagine being in an elevator standing on still on the earth. Any object would fall to the floor of the elevator.
+Them imagine being in an accelerated elevator out in space where there are no gravity, this elevator would be what we just reffered to as an accelerated reference frame.
+Also in this scenario any object would fall to the floor of the elevator, and the accelration of the object would be the same as the accelration of the elevator. And if the accelration of the elevator is the same as that of a falling object on earth, the two situastions are completly indistiwisable for the person inside the elevetor. 
+One can imagine that in the elevator an object falls to the floor because the elevator floor is accelerated towards it.
+With this in mind, in the elevator case, it is obvious that the accelratition is independent of composition of whatever you are dropping, for instance if it is made of matter or antimatter. 
+
+If the equivalence principle holdsr, this should also be the case on eart, but this has never been tested for antimatter before.
+
+The eqivalence principle is one of the building blocks of general relativity, and we have every evidence to assume that it is right. The theory of general relativity has several known and observed predictions like light being bent by massive objects, and we observe gravitationl redshift.
+
+And this is why the AEgIS experiment is exciting, because we have a simple question we want to answer, and we have a strong prediction for what the outcome should be. 
+But any deviation from the predicted outcome would really shatter our current understand of the world.
+
+But we don't have a ball of antimatter to drop, but what we do have is anti hydrogen. 
+
